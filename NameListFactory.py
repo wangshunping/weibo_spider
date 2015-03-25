@@ -53,7 +53,6 @@ class NameListFactory(threading.Thread):
             self.getMainNameList(link_id)
             for x in self.tmpNameList:
                 self.getUniversityStudent(x)
-            #print self.nameList
 
             sql_str = "INSERT IGNORE INTO NAME (USERNAME, LAST_VISIT,LINK_ID, ADD_TIME,SEX,HOMETOWN) VALUES(%s, %s, %s, %s,%s,%s) "
             self.cursor.executemany(sql_str,self.nameList)
@@ -84,18 +83,6 @@ class NameListFactory(threading.Thread):
         soup = bs(tmpContent.text)
         time.sleep(1)
         divlabel = soup.find_all('div','tip')
-        '''
-        try:
-            self.personalInfo = divlabel[0].next_sibling.get_text('|',strip=True)
-            self.schoolInfo = divlabel[1].next_sibling.get_text()
-            #mySchool = u'安徽医科大'
-            mySchool = self.school
-            if mySchool in self.schoolInfo:
-                name,sex,hometown = impRe(self.personalInfo)
-                self.nameList = self.nameList +[(name,0,inputid,time_now,sex, hometown)]
-        except:
-            pass
-        '''
 
         self.personalInfo = divlabel[0].next_sibling.get_text('|',strip=True)
         self.schoolInfo = divlabel[1].next_sibling.get_text()

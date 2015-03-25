@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import requests
 import gzip
 import StringIO
@@ -45,6 +47,22 @@ def reGetUid(inputstr):
         return qwe.group(1)
     except:
         return None
+
+def impRe(target):
+    pattern = u'昵称:([^\|]*)|'
+    abc = re.match(pattern,target)
+    name = abc.group(1)
+
+    pattern = u'性别:([^\|])'
+    abc = re.search(pattern,target)
+    sex = abc.group(1)
+
+    pattern = u'地区:([^\|]*)'
+    abc = re.search(pattern,target)
+    hometown = abc.group(1)
+
+    print name,sex,hometown
+
 
 def main():
     url='http://weibo.cn/1738181262/follow?page=9'
