@@ -3,8 +3,29 @@ graduate project, a weibo spider to find some interesting information such as "I
 
 还是不用英语了。
 
-这是我的项目的地址:
+## 东西还在持续更新中，欢迎fork 和 star。
+
+这是我的项目介绍的地址:
 http://wangshunping.github.io/%E9%A1%B9%E7%9B%AE/graduation-project/
 
-挖个坑，我会写这个东西怎么用，希望和大家一起探讨。
-东西还在持续更新中，欢迎fork 和 star。
+### 联系
+lionelwang93@163.com
+
+## 用法
+
+### 你需要安装的
+1. python2.7     (是不是转到py3比较有big)
+2. BeautifulSoup (超文本解析器)
+3. requests      (http for human)
+4. mysql         (...)
+
+### 运行
+1. 好啦，首先安装各种（安装遇到了问题可以邮件我）
+2. 修改config.ini ,主要是连接数据库的参数，cookie，你要爬的学校和入口的用户id
+3. 运行init.sql，建立数据库。
+4. 运行 ``` python util.py ``` 来测试爬虫是否可以成功爬取，返回入口id的信息，并在数据库插入第一条信息
+5. 运行 ```python NameListFactory.py``` 就可以欢乐的爬啦。
+
+## 注意
+1. 目前的线程为3，爬久了还是会封号。不过过几个小时会解封，解决策略是多申请几个号。
+
