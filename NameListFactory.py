@@ -5,17 +5,13 @@ follow Url:     https://weibo.cn/id/follow
 infomation Url: https://weibo.cn/id/info
 
 '''
-
-import time
 from bs4 import BeautifulSoup as bs
-from util import get_content,reGetUid
+from util import *
 import sys,re
 import ConfigParser
 import MySQLdb
 import threading
 import Queue
-
-from utilRe import impRe
 
 class NameListFactory(threading.Thread):
     def __init__(self,queue):
@@ -52,7 +48,10 @@ class NameListFactory(threading.Thread):
             link_id = t[0]
             self.getMainNameList(link_id)
             for x in self.tmpNameList:
-                self.getUniversityStudent(x)
+                try:
+                    self.nameList = self.nameList + getUniversityStudent(x,self.school)
+                except TypeError,e:
+                    pass
 
             sql_str = "INSERT IGNORE INTO NAME (USERNAME, LAST_VISIT,LINK_ID, ADD_TIME,SEX,HOMETOWN) VALUES(%s, %s, %s, %s,%s,%s) "
             self.cursor.executemany(sql_str,self.nameList)
@@ -74,22 +73,6 @@ class NameListFactory(threading.Thread):
                      if 'uid' in link.get('href')]
             self.tmpNameList.extend([reGetUid(x) for x in listinfo if reGetUid(x) is not None])
         self.tmpNameList = list(set(self.tmpNameList))
-
-    def getUniversityStudent(self,inputid):
-        nameList = []
-        time_now = int(time.time())
-        inputUrl = self.homepage + inputid + self.infopage
-        tmpContent = get_content(inputUrl)
-        soup = bs(tmpContent.text)
-        time.sleep(1)
-        divlabel = soup.find_all('div','tip')
-
-        self.personalInfo = divlabel[0].next_sibling.get_text('|',strip=True)
-        self.schoolInfo = divlabel[1].next_sibling.get_text()
-        mySchool = self.school
-        if mySchool in self.schoolInfo:
-            name,sex,hometown = impRe(self.personalInfo)
-            self.nameList = self.nameList +[(name,0,inputid,time_now,sex, hometown)]
 
 class updateNames(object):
     def __init__(self):
