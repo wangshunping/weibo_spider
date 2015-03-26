@@ -76,7 +76,7 @@ def getUniversityStudent(inputid,school):
 
     if school in schoolInfo:
         name,sex,hometown = impRe(personalInfo)
-        return [(name,0,inputid,time_now,sex,hometown)]
+        return (name,0,inputid,time_now,sex,hometown)
     else:
         pass
 
@@ -99,24 +99,11 @@ def connectToDatabase(firstInfo):
         print "Fail to connect to database"
         sys.exit(-1)
     print "connet to databse success ..."
-    sql = "INSERT IGNORE INTO NAME (USERNAME,LAST_VISIT,LINK_ID,ADD_TIME,SEX,HOMETOWN) VALUES(%s,%s,%s,%s,%s,%s)"
+    sql = "INSERT IGNORE INTO NAME (USERNAME,LAST_VISIT,LINK_ID,ADD_TIME,SEX,HOMETOWN) \
+            VALUES(%s,%s,%s,%s,%s,%s)"
+
     cursor.execute(sql, firstInfo)
     print "insert first info to database success ..."
-
-def impRe(target):
-    pattern = u'昵称:([^\|]*)|'
-    abc = re.match(pattern,target)
-    name = abc.group(1)
-
-    pattern = u'性别:([^\|])'
-    abc = re.search(pattern,target)
-    sex = abc.group(1)
-
-    pattern = u'地区:([^\|]*)'
-    abc = re.search(pattern,target)
-    hometown = abc.group(1)
-
-    print name,sex,hometown
 
 
 def main():
