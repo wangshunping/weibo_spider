@@ -3,6 +3,12 @@ graduate project, a weibo spider to find some interesting information such as "I
 
 还是不用英语了。
 
+### Update 2015.03.27
+这是基于安医大近500个爬取的微博账号统计的结果。
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/mwRatio.png)
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2totalcontent.png)
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2zhuangfa.png)
+
 ## 东西还在持续更新中，欢迎fork 和 star。
 
 这是我的项目介绍的地址:
