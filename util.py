@@ -12,22 +12,6 @@ import MySQLdb
 homePage = 'http://weibo.cn/'
 infoPage = '/info'
 
-def impRe(target):
-    pattern = u'昵称:([^\|]*)|'
-    abc = re.match(pattern, target)
-    name = abc.group(1)
-
-    pattern = u'性别:([^\|])'
-    abc = re.search(pattern, target)
-    sex = abc.group(1)
-
-    pattern = u'地区:([^\|]*)'
-    abc = re.search(pattern, target)
-    hometown = abc.group(1)
-
-    print name,sex,hometown
-    return name,sex,hometown
-
 def reGetUid(inputstr):
     import re
     patt = 'uid=([0-9]*)&rl'
@@ -75,6 +59,7 @@ def getUniversityStudent(inputid,school):
     schoolInfo = divlabel[1].next_sibling.get_text()
 
     if school in schoolInfo:
+        print personalInfo
         name,sex,hometown = impRe(personalInfo)
         return (name,0,inputid,time_now,sex,hometown)
     else:
@@ -101,9 +86,25 @@ def connectToDatabase(firstInfo):
     print "connet to databse success ..."
     sql = "INSERT IGNORE INTO NAME (USERNAME,LAST_VISIT,LINK_ID,ADD_TIME,SEX,HOMETOWN) \
             VALUES(%s,%s,%s,%s,%s,%s)"
-
     cursor.execute(sql, firstInfo)
+    db.commit()
     print "insert first info to database success ..."
+
+def impRe(target):
+    print target,"......"
+    pattern = u'昵称:([^\|]*)|'
+    abc = re.match(pattern,target)
+    name = abc.group(1)
+
+    pattern = u'性别:([^\|])'
+    abc = re.search(pattern,target)
+    sex = abc.group(1)
+
+    pattern = u'地区:([^\|]*)'
+    abc = re.search(pattern,target)
+    hometown = abc.group(1)
+
+    return name,sex,hometown
 
 
 def main():
