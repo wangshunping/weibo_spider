@@ -1,0 +1,4 @@
+config.ini
+.DS_Store
+.idea/*
+.ropeproject/*
