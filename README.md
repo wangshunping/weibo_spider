@@ -3,16 +3,24 @@ graduate project, a weibo spider to find some interesting information such as "I
 
 还是不用英语了。
 
-这是我的项目介绍的地址:
-http://wangshunping.github.io/%E9%A1%B9%E7%9B%AE/graduation-project/
+Hi,我今年大四毕业，我猜你也是和我一个差不多大的少年。（如果是姑娘请联系我谢谢）
 
-### Update 2015.03.27
-这是基于安医大近500个爬取的微博账号统计的结果。
-![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/mwRatio.png)
-![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2totalcontent.png)
-![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2zhuangfa.png)
+我不知道你是通过哪种渠道访问到了我的项目。如果你只是刚入门python或者根本不会，来吧，我们来撸一发，我们来玩些有趣的。
+
+python 是一门非常简洁的语言，最重要的是，python的源码是可见的，它是真正的开源项目应该崇尚的语言。我在这个项目里面用到的爬虫，操作数据库，多线程，画图，统计或机器学习都是用python语言实现的。
+
+如果你用python，你就不是一个人在战斗。
+
+这个项目现在已经做到的程度是，下载源码，改动 config.ini 文件里面的学校名称，入口id, cookie，就可以画出你们学校的微博使用统计图统计图，我希望你把最后得到的图push给我，我希望帮助，或者和你一起完成前面的步骤；我希望通过我的源码，让你了解或者熟悉python，然后你再告诉我你有了一个什么碉堡了的想法，我来和你一起弄。
+
+毕竟，
+
+Talk is cheap, show me your code.
 
 ## 东西还在持续更新中，欢迎fork 和 star。
+
+这是我的项目介绍的地址:
+http://wangshunping.github.io/%E9%A1%B9%E7%9B%AE/graduation-project/
 
 ### 联系
 lionelwang93@163.com
@@ -42,3 +50,8 @@ lionelwang93@163.com
 
 ![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/closeUser.png)
 
+### Update 2015.03.27
+这是基于安医大近500个爬取的微博账号统计的结果。
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/mwRatio.png)
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2totalcontent.png)
+![image](https://github.com/wangshunping/weibo_spider/raw/master/pic/sex2zhuangfa.png)
