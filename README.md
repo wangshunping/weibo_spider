@@ -36,7 +36,7 @@ lionelwang93@163.com
 
 ### 运行
 1. 好啦，首先安装各种（安装遇到了问题可以邮件我）
-2. 修改config.ini ,主要是连接数据库的参数，cookie(如何获取cookie，可以参考这里http://www.douban.com/note/265628450)，你要爬的学校和入口的用户id
+2. 修改config.ini ,主要是连接数据库的参数，cookie(如何获取cookie，可以参考[这里](http://www.douban.com/note/265628450) ) ，你要爬的学校和入口的用户id
 3. 运行init.sql，建立数据库。
 4. 运行 ``` python util.py ``` 来测试爬虫是否可以成功爬取，返回入口id的信息，并在数据库插入第一条信息
   如果成功了，会返回入口id的个人信息
